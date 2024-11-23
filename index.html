@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Time😁</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #d5c9ff, #f5e3e6);
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-top: 20px;
+      font-size: 2.5em;
+      color: #6b5b95;
+    }
+    button {
+      margin: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #a5d6a7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    button:hover {
+      background-color: #81c784;
+    }
+    .love-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto;
+      max-width: 80%;
+      height: 60vh;
+      overflow-y: auto;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .love-item {
+      font-size: 1.5em;
+      color: #6b5b95;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #d5c9ff;
+      border-radius: 10px;
+      animation: fadeIn 1s ease-in-out;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Lets play a game😉✨</h1>
+  <button onclick="generateLove()"> Play </button>
+  <div class="love-container" id="loveContainer"></div>
+
+  <script>
+    let interval; // To store the interval ID
+
+    // Start generating love messages
+    function generateLove() {
+      const container = document.getElementById('loveContainer');
+      if (interval) {
+        clearInterval(interval); // Stop any previous interval
+      }
+      interval = setInterval(() => {
+        const loveElement = document.createElement('div');
+        loveElement.className = 'love-item';
+        loveElement.innerText = 'I love you 💖';
+
+        // Add the love element at a random position inside the container
+        const x = Math.floor(Math.random() * (container.offsetWidth - 100));
+        const y = Math.floor(Math.random() * (container.offsetHeight - 50));
+
+        // Add styles for position (surprise effect)
+        loveElement.style.position = 'absolute';
+        loveElement.style.left = `${x}px`;
+        loveElement.style.top = `${y}px`;
+
+        container.appendChild(loveElement);
+      }, 500); // Add a new message every 500ms
+    }
+  </script>
+</body>
+</html>
